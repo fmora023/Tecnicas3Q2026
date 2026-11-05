@@ -48,22 +48,6 @@ namespace ClassExampleModels
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="User"/> class.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        public User(object?[]? args)
-        {
-            //this.Id = args[0];
-            //this.Name = args[1];
-            //this.LastName = args[2];
-            //this.Email = args[3];
-            //this.Number = new Number(args[4]);
-            //this.Username = args[5];
-            //this.Password = args[6];
-            //this.BirthDate = DateTime.Parse(args[7]);
-        }
-
-        /// <summary>
         /// Gets or sets the username.
         /// </summary>
         /// <value>
