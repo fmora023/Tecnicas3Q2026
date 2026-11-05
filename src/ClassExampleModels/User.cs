@@ -18,9 +18,7 @@ namespace ClassExampleModels
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <param name="birthDate">The birth date.</param>
-#pragma warning disable IDE0060 // Remove unused parameter
-        public User(string id, string name, string lastName, string email, string number, string username, string password, DateTime? birthDate, string[] Contacts)
-#pragma warning restore IDE0060 // Remove unused parameter
+        public User(string id, string name, string lastName, string email, string number, string username, string password, string birthDate, string contacts)
         {
             this.Id = id;
             this.Name = name;
@@ -28,23 +26,9 @@ namespace ClassExampleModels
             this.Email = email;
             this.Username = username;
             this.Password = password;
-            this.BirthDate = birthDate;
+            this.BirthDate = DateTime.Parse(birthDate);
             this.Number = new Number(number);
-            this.Contacts = new List<Contact>();
-        }
-
-        public User(string id, string name, string lastName, string email, string number, string username, string password, string birthDate, string Contacts, string x)
-#pragma warning restore IDE0060 // Remove unused parameter
-        {
-            this.Id = id;
-            this.Name = name;
-            this.LastName = lastName;
-            this.Email = email;
-            this.Username = username;
-            this.Password = password;
-            //this.BirthDate = birthDate;
-            this.Number = new Number(number);
-            this.Contacts = new List<Contact>();
+            this.Contacts = ProccessContactSring(contacts)!;
         }
 
         /// <summary>
@@ -77,7 +61,7 @@ namespace ClassExampleModels
         /// <value>
         /// The contacts.
         /// </value>
-        public List<Contact> Contacts { get; set; }
+        public List<int> Contacts { get; set; }
 
         /// <summary>
         /// Gets the age.
@@ -105,6 +89,29 @@ namespace ClassExampleModels
                     return 0;
                 }
             }
+        }
+
+        private static List<int>? ProccessContactSring(string contacts)
+        {
+            if (string.IsNullOrWhiteSpace(contacts))
+            {
+                return new List<int>();
+            }
+            
+            var result = new List<int>();
+
+            var cleanContact = contacts.Substring(1, contacts.Length - 2);
+            var contactList = cleanContact.Split(';');
+
+            foreach (var contact in contactList)
+            {
+                if (int.TryParse(contact, out int contactId))
+                {
+                    result.Add(contactId);
+                }
+            }
+
+            return result;
         }
     }
 }

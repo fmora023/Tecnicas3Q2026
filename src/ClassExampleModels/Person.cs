@@ -43,6 +43,6 @@
         /// <value>
         /// The number.
         /// </value>
-        public Number Number { get; set; } = new Number(string.Empty);
+        public Number Number { get; set; }
     }
 }
