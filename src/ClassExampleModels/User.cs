@@ -1,11 +1,12 @@
-﻿namespace ClassExampleModels
+﻿using System.Xml.Linq;
+
+namespace ClassExampleModels
 {
     /// <summary>
     /// Class to represent the principal user of the application.
     /// </summary>
     public class User : Person
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="User"/> class.
         /// </summary>
@@ -30,6 +31,36 @@
             this.BirthDate = birthDate;
             this.Number = new Number(number);
             this.Contacts = new List<Contact>();
+        }
+
+        public User(string id, string name, string lastName, string email, string number, string username, string password, string birthDate, string Contacts, string x)
+#pragma warning restore IDE0060 // Remove unused parameter
+        {
+            this.Id = id;
+            this.Name = name;
+            this.LastName = lastName;
+            this.Email = email;
+            this.Username = username;
+            this.Password = password;
+            //this.BirthDate = birthDate;
+            this.Number = new Number(number);
+            this.Contacts = new List<Contact>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="User"/> class.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public User(object?[]? args)
+        {
+            //this.Id = args[0];
+            //this.Name = args[1];
+            //this.LastName = args[2];
+            //this.Email = args[3];
+            //this.Number = new Number(args[4]);
+            //this.Username = args[5];
+            //this.Password = args[6];
+            //this.BirthDate = DateTime.Parse(args[7]);
         }
 
         /// <summary>

@@ -1,0 +1,4 @@
+id, name, lastName, email, number, username, password, birthDate, Contacts
+0,Liam,Rodriguez,lr@gmail.com,62666266,lr,lr6266,2000-01-01,{1,2}
+1,NiIdea,Nose,nn@gmail.com,78902231,nm,76R22,2000-01-01,{0,2}
+2,Katherine,Umana,ku@gmail.com,78907231,ku,1234,2000-01-01,{0,1}
