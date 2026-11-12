@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using ClassExampleModels.Enums;
+using System.Xml.Linq;
 
 namespace ClassExampleModels
 {
@@ -18,7 +19,8 @@ namespace ClassExampleModels
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <param name="birthDate">The birth date.</param>
-        public User(string id, string name, string lastName, string email, string number, string username, string password, string birthDate, string contacts)
+        /// <param name="role">The user role.</param>
+        public User(string id, string name, string lastName, string email, string number, string username, string password, string birthDate, string contacts, string role)
         {
             this.Id = id;
             this.Name = name;
@@ -29,6 +31,7 @@ namespace ClassExampleModels
             this.BirthDate = DateTime.Parse(birthDate);
             this.Number = new Number(number);
             this.Contacts = ProccessContactSring(contacts)!;
+            this.Role = (Role)int.Parse(role);
         }
 
         /// <summary>
@@ -90,6 +93,14 @@ namespace ClassExampleModels
                 }
             }
         }
+
+        /// <summary>
+        /// Gets or sets the role.
+        /// </summary>
+        /// <value>
+        /// The role.
+        /// </value>
+        public Role Role { get; set; }
 
         private static List<int>? ProccessContactSring(string contacts)
         {

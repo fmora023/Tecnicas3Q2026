@@ -36,8 +36,14 @@ namespace ClassExample
 
             if (result)
             {
-                // de momento nada
-                MessageBox.Show("Exito!!.", "Login Success");
+                if (this.LoginController.InformationService.CurrentUser != null && 
+                    this.LoginController.InformationService.CurrentUser.Role == ClassExampleModels.Enums.Role.User)
+                {
+                    MessageBox.Show("Exito!! usuario comun.", "Login Success");
+                }
+
+                var mainMenuView = new MainMenuView(this.LoginController.InformationService);
+                mainMenuView.Show();
             }
             else
             {
